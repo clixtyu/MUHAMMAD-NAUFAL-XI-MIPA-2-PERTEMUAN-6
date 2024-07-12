@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contoh Kalkulator Dengan DOM</title>
+
+<style>
+#char{width:50px;height:50px}
+#angka{width:50px;height:50px}
+
+</style>
+<script>
+function angka(number){
+	var layar = document.getElementById("hasil").value;
+	if(layar=="0"){
+    	document.getElementById("hasil").value=number;
+	}else{
+    document.getElementById("hasil").value=layar+number;
+    }
+}
+function nol(){
+	document.getElementById("hasil").value="0";
+	
+}
+function operator(nya){
+		if(nya=="+"){
+        	var layar = document.getElementById("hasil").value;
+			if(layar=="0"){
+    			document.getElementById("hasil").value="0";
+			}else{
+    			document.getElementById("hasil").value=layar+nya;
+    		}
+        
+        	
+        }
+		if(nya=="-"){
+        	var layar = document.getElementById("hasil").value;
+			if(layar=="0"){
+    			document.getElementById("hasil").value="0";
+			}else{
+    			document.getElementById("hasil").value=layar+nya;
+    		}
+        
+        	
+        }
+		if(nya=="*"){
+        	var layar = document.getElementById("hasil").value;
+			if(layar=="0"){
+    			document.getElementById("hasil").value="0";
+			}else{
+    			document.getElementById("hasil").value=layar+nya;
+    		}
+        
+        	
+        }
+		if(nya=="%"){
+        	var layar = document.getElementById("hasil").value;
+			if(layar=="0"){
+    			document.getElementById("hasil").value="0";
+			}else{
+    			document.getElementById("hasil").value=layar+nya;
+    		}
+        
+		}
+		if(nya=="/"){
+	var layar = document.getElementById("hasil").value;
+	if(layar=="0"){
+		document.getElementById("hasil").value="0";
+	}else{
+		document.getElementById("hasil").value=layar+nya;
+	}
+        
+}
+		
+if(nya=="."){
+	var layar = document.getElementById("hasil").value;
+	if(layar=="0"){
+		document.getElementById("hasil").value="0";
+	}else{
+		document.getElementById("hasil").value=layar+nya;
+	}
+        
+}
+
+
+}
+function hitung(){
+			var layar = document.getElementById("hasil").value;
+			if(layar=="0"){
+    			document.getElementById("hasil").value="0";
+			}else{
+    			document.getElementById("hasil").value=eval(layar);
+    		}
+}
+function backspace(){
+			var layar = document.getElementById("hasil").value;
+			if(layar=="0"){
+    			document.getElementById("hasil").value="0";
+			}else{
+    			document.getElementById("hasil").value=layar.slice(0,-1);
+				if(document.getElementById("hasil").value==""){
+					document.getElementById("hasil").value="0";
+				}
+    		}
+}
+</script>
+</head>
+<body>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width:200px">
+	<tbody>
+    <tr>
+			<td colspan="4"><input type="text" id="hasil" name="hasil" value="0" style="width:96%;height:50px;text-align:right" > </td>
+			
+		</tr>
+		<tr>
+			<td style="width:50px; height:50"><input type="button" id="char" name="char" value="C" onclick="nol()"> </td>
+			<td style="width:50px; height:50px;"><input type="button" id="char" name="char" value="/" onclick="operator(this.value)"></td>
+			<td style="width:50px; height:50px;"><input type="button" id="char" name="char" value="*" onclick="operator(this.value)"></td>
+			<td><button type="button" id="char" name="char" style="width:50px; height:50px; text-align:center" onclick="backspace()"><img src="https://i.ibb.co/8jSWr9X/images.png  " style="width:25px; height:25px;" ></button></td>
+		</tr>
+		
+		<tr>
+			<td style="width:50px; height:50"><input type="button" id="angka" name="angka" value="1"onclick="angka(this.value)" > </td>
+			<td style="width:50px; height:50px;"><input type="button" id="angka" name="angka" value="2" onclick="angka(this.value)"> </td>
+			<td style="width:50px; height:50px;"><input type="button" id="angka" name="angka" value="3" onclick="angka(this.value)"></td>
+			<td rowspan="2" style="width:50px; height:106px;"><input style="width:50px; height:106px;" type="button" id="char" name="char" value="=" onclick="hitung()"></td>
+		</tr>
+		<tr>
+			<td style="width:50px; height:50"><input type="button" id="angka" name="angka" value="4" onclick="angka(this.value)" > </td>
+			<td style="width:50px; height:50px;"><input type="button" id="angka" name="angka" value="5"  onclick="angka(this.value)"       ></td>
+			<td style="width:50px; height:50px;"><input type="button" id="angka" name="angka" value="6"    onclick="angka(this.value)"     ></td>
+			
+		</tr>
+		<tr>
+			<td style="width:50px; height:50"><input type="button" id="angka" name="angka" value="7" onclick="angka(this.value)"> </td>
+			<td style="width:50px; height:50px;"><input type="button" id="angka" name="angka" value="8" onclick="angka(this.value)"></td>
+			<td style="width:50px; height:50px;"><input type="button" id="angka" name="angka" value="9" onclick="angka(this.value)"></td>
+			<td><input type="button" id="char" name="char" value="+" onclick="operator(this.value)"></td>
+		</tr>
+		<tr>
+			<td style="width:50px; height:50"><input type="button" id="char" name="char" value="%" onclick="operator(this.value)" > </td>
+			<td style="width:50px; height:50px;"><input type="button" id="angka" name="angka" value="0" onclick="angka(this.value)"></td>
+			<td style="width:50px; height:50px;"><input type="button" id="char" name="char" value="."  onclick="operator(this.value)" ></td>
+			<td><input type="button" id="char" name="char" value="-"  onclick="operator(this.value)" ></td>
+			
+		</tr>
+	</tbody>
+</table>
+
+
+
+
+</body>
+</html>
